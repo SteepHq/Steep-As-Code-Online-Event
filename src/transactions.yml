@@ -38,11 +38,13 @@ module:
         - "this.*"
       slices:
         - name: "EUR"
+          identifier: "eur"
           filter:
             column: "currency"
             operator: "equals"
             expression: "eur"
         - name: "USD"
+          identifier: "usd"
           filter:
             column: "currency"
             operator: "equals"
