@@ -18,3 +18,9 @@ module:
       dimensions:
         - "country"
         - "currency"
+    - identifier: "ad_spend_count"
+      name: "Ad spend (count)"
+      time: "ad_spend.created_at"
+      type: "count"
+      dimensions:
+        - "country"
