@@ -1,0 +1,43 @@
+module:
+  identifier: "customers"
+  schema: "steep_demo_fintech"
+  table: "customers"
+  description: "Registered customers, including ID, e-mail, country and sign-up date."
+  dimensions:
+    - column: "country"
+      type: "country"
+      label: "Country"
+      description: "The country of the customer"
+  joinPaths:
+    - from:
+        column: "id"
+      to:
+        table: "transactions"
+        column: "customer_id"
+      type: "one-to-many"
+  metrics:
+    - identifier: "registrations"
+      name: "Registrations"
+      description: "Number of new customers signed up"
+      time: "customers.created_at"
+      type: "count"
+      dimensions:
+        - "this.*"
+  entities:
+    - identifier: "customer"
+      name: "Customer"
+      icon_name: "user"
+      primary_key: "id"
+      properties:
+        - column: "email"
+          name: "E-mail"
+          type: "string"
+          icon_name: "mail"
+        - column: "country"
+          name: "Country"
+          type: "string"
+        - column: "created_at"
+          name: "Signed up at"
+          type: "time"
+      metrics:
+        - "registrations"
