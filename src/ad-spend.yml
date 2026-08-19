@@ -1,0 +1,20 @@
+module:
+  identifier: "ad_spend"
+  schema: "steep_demo_fintech"
+  table: "ad_spend"
+  dimensions:
+    - column: "country"
+      type: "categorical"
+      label: "Country"
+    - column: "currency"
+      type: "categorical"
+      label: "Currency"
+  metrics:
+    - identifier: "ad_spend_sum"
+      name: "Ad spend (sum)"
+      time: "ad_spend.created_at"
+      type: "sum"
+      value: "ad_spend.amount"
+      dimensions:
+        - "country"
+        - "currency"
